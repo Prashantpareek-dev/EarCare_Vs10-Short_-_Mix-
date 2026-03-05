@@ -8,7 +8,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;900&display=swap"
     rel="stylesheet">
-     <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
       --black: #080808;
@@ -153,87 +153,122 @@
       line-height: 1.6;
     }
 
-    /* PROBLEMS — numbered side strip */
+    /* PROBLEMS — Floating Icon Card Layout */
     .problems-sec {
       padding: 26px 16px;
-      background: #0d0d0d;
+      background: #0b0b0b;
       border-bottom: 3px solid var(--red);
     }
 
     .prob-item {
-      display: flex;
-      align-items: stretch;
-      margin-bottom: 10px;
-      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 44px 1fr 150px;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      border: 1.5px solid #e0101044;
-      background: linear-gradient(115deg, #1a0000, #131313);
-      transition: transform .2s, border-color .2s;
+      background: #111;
+      border: 1px solid #1e1e1e;
+      transition: border-color .2s, box-shadow .2s;
+      position: relative;
     }
 
     .prob-item:hover {
-      transform: translateX(4px);
-      border-color: var(--red);
+      border-color: #e0101066;
+      box-shadow: 0 0 0 1px #e0101033, inset 0 0 40px #e010100a;
+    }
+
+    /* alternating yellow accent on even items */
+    .prob-item:nth-child(even) {
+      border-color: #FFD60022;
+    }
+
+    .prob-item:nth-child(even):hover {
+      border-color: #FFD60077;
+      box-shadow: 0 0 0 1px #FFD60033, inset 0 0 40px #FFD6000a;
     }
 
     .prob-num {
-      background: var(--red);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 900;
-      writing-mode: vertical-lr;
-      transform: rotate(180deg);
-      padding: 10px 7px;
-      letter-spacing: 2px;
-      min-width: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      height: 100%;
+      min-height: 80px;
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      background: #e01010;
+      letter-spacing: 0;
+      line-height: 1;
+      flex-direction: column;
     }
 
-    .prob-img {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      flex-shrink: 0;
-      border-right: 2px solid #1e1e1e;
+    .prob-item:nth-child(even) .prob-num {
+      background: var(--yellow);
+      color: #000;
     }
 
     .prob-body {
-      padding: 10px 13px;
+      padding: 14px 12px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 3px;
+      gap: 4px;
     }
 
     .prob-title {
       font-size: 17px;
       font-weight: 800;
       color: #fff;
+      line-height: 1.25;
+    }
+
+    .prob-item:nth-child(even) .prob-title {
+      color: #fff;
     }
 
     .prob-sub {
       font-size: 13px;
-      color: #999;
+      color: #888;
       line-height: 1.4;
+    }
+
+    .prob-img {
+      width: 150px;
+      height: 110px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+      filter: brightness(.85) saturate(.9);
+      border-left: 2px solid #1e1e1e;
+      transition: filter .3s;
+    }
+
+    .prob-item:hover .prob-img {
+      filter: brightness(1) saturate(1.1);
+    }
+
+    .prob-item:nth-child(even) .prob-img {
+      border-left-color: #FFD60033;
     }
 
     .warn-box {
       margin-top: 14px;
-      background: linear-gradient(90deg, #6b0000, #400000);
-      border: 2px solid var(--yellow);
-      border-radius: 10px;
-      padding: 13px 15px;
+      background: #0e0e0e;
+      border-left: 5px solid var(--yellow);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
       font-size: 15px;
       font-weight: 700;
       color: var(--yellow);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .warn-box span {
-      color: #fff;
+      color: #aaa;
       font-weight: 400;
     }
 
@@ -390,8 +425,8 @@
     }
 
     .tl-img {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
       flex-shrink: 0;
       border-right: 3px solid var(--yellow);
@@ -546,8 +581,8 @@
     }
 
     .cond-img {
-      width: 92px;
-      height: 92px;
+      width: 132px;
+      height: 132px;
       object-fit: cover;
       flex-shrink: 0;
       border-right: 3px solid var(--yellow);
@@ -634,18 +669,24 @@
       font-size: 16px;
       font-weight: 800;
       color: var(--yellow);
+      font-family: 'Baloo 2', sans-serif;
+      letter-spacing: 0.5px;
     }
 
     .testi-loc {
       font-size: 12px;
       color: #777;
       margin-top: 1px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .stars {
       color: var(--yellow);
       font-size: 15px;
       letter-spacing: 2px;
+      font-family: Arial, sans-serif;
     }
 
     .testi-txt {
@@ -653,6 +694,8 @@
       color: #ddd;
       line-height: 1.65;
       font-style: italic;
+      font-family: Georgia, 'Times New Roman', serif;
+      letter-spacing: 0.3px;
     }
 
     /* OFFER */
@@ -765,7 +808,7 @@
       border: 2px solid #2a2a2a;
       border-radius: 10px;
       padding: 14px 15px;
-      color: #fff;
+      color: #faf9f9;
       font-size: 16px;
       font-family: inherit;
       outline: none;
@@ -937,9 +980,8 @@
   <div class="page" id="top">
 
     <!-- HERO -->
-    <div class="hero mt-26">
-      <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=150&q=80" class="hero-img"
-        alt="Ear Health" />
+    <div class="hero" style="padding-top: 30px;">
+      <img src="./Image/Pro3.png" class="hero-img" alt="Ear Health" />
       <div class="hero-overlay">
         <div class="hero-badge">⚠️ URGENT ALERT</div>
         <div class="hero-title">👂 क्या आप भी इन<br /><span class="y">Ear Problems</span> से<br />परेशान हैं?</div>
@@ -953,59 +995,65 @@
 
       <div class="prob-item">
         <div class="prob-num">01</div>
-        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=150&q=80" class="prob-img" alt="" />
         <div class="prob-body">
           <div class="prob-title">कम सुनाई देना</div>
           <div class="prob-sub">आवाजें धुंधली या कम सुनाई देती हैं</div>
         </div>
+        <img src="./Image/Pro1.png" class="prob-img" alt="" />
       </div>
+
       <div class="prob-item">
         <div class="prob-num">02</div>
-        <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=150&q=80" class="prob-img" alt="" />
         <div class="prob-body">
           <div class="prob-title">बहरेपन का डर</div>
           <div class="prob-sub">Hearing loss का बढ़ता हुआ खतरा</div>
         </div>
+        <img src="./Image/Pro2.png" class="prob-img" alt="" />
       </div>
+
       <div class="prob-item">
         <div class="prob-num">03</div>
-        <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=150&q=80" class="prob-img" alt="" />
-        <div class="prob-body">
-          <div class="prob-title">कान में दर्द</div>
-          <div class="prob-sub">लगातार या रुक-रुक कर होने वाला दर्द</div>
-        </div>
-      </div>
-      <div class="prob-item">
-        <div class="prob-num">04</div>
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=150&q=80" class="prob-img" alt="" />
-        <div class="prob-body">
-          <div class="prob-title">बार-बार Ear Infection</div>
-          <div class="prob-sub">Recurring infections का सिलसिला</div>
-        </div>
-      </div>
-      <div class="prob-item">
-        <div class="prob-num">05</div>
-        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=150&q=80" class="prob-img" alt="" />
-        <div class="prob-body">
-          <div class="prob-title">पानी या मवाद आना</div>
-          <div class="prob-sub">कान से fluid या discharge होना</div>
-        </div>
-      </div>
-      <div class="prob-item">
-        <div class="prob-num">06</div>
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&q=80" class="prob-img" alt="" />
         <div class="prob-body">
           <div class="prob-title">कान में सूजन</div>
           <div class="prob-sub">Swelling और discomfort महसूस होना</div>
         </div>
+        <img src="./Image/Pro6.png" class="prob-img" alt="" />
       </div>
+
+      <div class="prob-item">
+        <div class="prob-num">04</div>
+        <div class="prob-body">
+          <div class="prob-title">बार-बार Ear Infection</div>
+          <div class="prob-sub">Recurring infections का सिलसिला</div>
+        </div>
+        <img src="./Image/Pro4.png" class="prob-img" alt="" />
+      </div>
+
+      <div class="prob-item">
+        <div class="prob-num">05</div>
+        <div class="prob-body">
+          <div class="prob-title">पानी या मवाद आना</div>
+          <div class="prob-sub">कान से fluid या discharge होना</div>
+        </div>
+        <img src="./Image/Pro5.png" class="prob-img" alt="" />
+      </div>
+
+      <div class="prob-item">
+        <div class="prob-num">06</div>
+        <div class="prob-body">
+          <div class="prob-title">कान में दर्द</div>
+          <div class="prob-sub">लगातार या रुक-रुक कर होने वाला दर्द</div>
+        </div>
+        <img src="./Image/Pro3.png" class="prob-img" alt="" />
+      </div>
+
       <div class="prob-item">
         <div class="prob-num">07</div>
-        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=150&q=80" class="prob-img" alt="" />
         <div class="prob-body">
           <div class="prob-title">हड्डी कमजोर होना</div>
           <div class="prob-sub">Ear bone density का घटते जाना</div>
         </div>
+        <img src="./Image/Pro7.png" class="prob-img" alt="" />
       </div>
 
       <div class="warn-box">⚠️ अगर इन problems को time पर control नहीं किया गया, <span>तो आगे चलकर hearing seriously
@@ -1016,26 +1064,75 @@
 
     <!-- PRODUCT -->
     <div class="product-sec">
-      <div class="sec-label">🌿 हमारा Solution</div>
-      <div class="prod-banner">
-        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=450&q=80" alt="Herbal" />
-        <div class="prod-banner-text">
-          <div class="prod-banner-name">Ear Care Plus</div>
-          <div class="prod-banner-tag">Advanced Herbal Ear Support Formula</div>
+      <div class="sec-label">🌿 Presenting</div>
+
+      <!-- Product Header -->
+      <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="font-size: 28px; font-weight: 900; color: var(--yellow); margin-bottom: 8px; line-height: 1.2;">Ear
+          Care Plus</h2>
+        <p style="font-size: 16px; color: #ddd; font-style: italic; letter-spacing: 0.5px;">Advanced Herbal Ear Support
+          Formula</p>
+      </div>
+
+      <!-- Product Image -->
+      <div style="text-align: center; display: flex; justify-content: center; margin-bottom: 24px;">
+        <img src="./Image/Intro.png" alt="Ear Care Plus Product"
+          style="max-width: 280px; width: 100%; height: auto; border-radius: 16px; border: 4px solid var(--yellow); box-shadow: 0 0 30px #FFD60066; background: #111;">
+      </div>
+
+      <!-- Benefits Grid -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px;">
+        <div
+          style="display: flex; align-items: center; background: linear-gradient(90deg, #1a1a00, #0f0f0f); border: 2px solid #333; border-radius: 12px; padding: 14px; transition: border-color 0.2s;"
+          onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#333'">
+          <div
+            style="background: var(--yellow); color: #000; font-size: 18px; padding: 8px; border-radius: 50%; margin-right: 12px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            ✔</div>
+          <span style="color: #fff; font-size: 16px; font-weight: 700;">Natural Ingredients</span>
+        </div>
+
+        <div
+          style="display: flex; align-items: center; background: linear-gradient(90deg, #1a1a00, #0f0f0f); border: 2px solid #333; border-radius: 12px; padding: 14px; transition: border-color 0.2s;"
+          onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#333'">
+          <div
+            style="background: var(--yellow); color: #000; font-size: 18px; padding: 8px; border-radius: 50%; margin-right: 12px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            ✔</div>
+          <span style="color: #fff; font-size: 16px; font-weight: 700;">Ear Cleaning Support</span>
+        </div>
+
+        <div
+          style="display: flex; align-items: center; background: linear-gradient(90deg, #1a1a00, #0f0f0f); border: 2px solid #333; border-radius: 12px; padding: 14px; transition: border-color 0.2s;"
+          onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#333'">
+          <div
+            style="background: var(--yellow); color: #000; font-size: 18px; padding: 8px; border-radius: 50%; margin-right: 12px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            ✔</div>
+          <span style="color: #fff; font-size: 16px; font-weight: 700;">Pain & Swelling Relief Support</span>
+        </div>
+
+        <div
+          style="display: flex; align-items: center; background: linear-gradient(90deg, #1a1a00, #0f0f0f); border: 2px solid #333; border-radius: 12px; padding: 14px; transition: border-color 0.2s;"
+          onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#333'">
+          <div
+            style="background: var(--yellow); color: #000; font-size: 18px; padding: 8px; border-radius: 50%; margin-right: 12px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            ✔</div>
+          <span style="color: #fff; font-size: 16px; font-weight: 700;">Infection Control Support</span>
+        </div>
+
+        <div
+          style="display: flex; align-items: center; background: linear-gradient(90deg, #1a1a00, #0f0f0f); border: 2px solid #333; border-radius: 12px; padding: 14px; transition: border-color 0.2s;"
+          onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='#333'">
+          <div
+            style="background: var(--yellow); color: #000; font-size: 18px; padding: 8px; border-radius: 50%; margin-right: 12px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+            ✔</div>
+          <span style="color: #fff; font-size: 16px; font-weight: 700;">Daily Use Friendly</span>
         </div>
       </div>
-      <div class="prod-row">
-        <img src="https://images.unsplash.com/photo-1611068120813-5d9bdca66d52?w=200&q=80" class="prod-img"
-          alt="Product" />
-        <div>
-          <div style="font-size:16px;font-weight:700;color:#ccc;line-height:1.65;">कान की हर समस्या के लिए एक <span
-              style="color:var(--yellow);font-weight:900;">Natural Formula</span> — safe, effective और daily use के लिए
-            developed।</div>
-          <div class="prod-tags">
-            <span class="ptag">✔ Natural</span><span class="ptag">✔ Herbal</span>
-            <span class="ptag">✔ Daily Safe</span><span class="ptag">✔ No Chemicals</span>
-          </div>
-        </div>
+
+      <!-- Call to Action -->
+      <div
+        style="background: linear-gradient(135deg, #2a2a00, #1a1a00); border: 3px solid var(--yellow); border-radius: 16px; padding: 18px; text-align: center; margin-top: 16px;">
+        <p style="color: var(--yellow); font-size: 18px; font-weight: 800; line-height: 1.4;">कान की समस्याओं का <span
+            style="color: #fff;">Natural Solution</span><br>Safe, Effective & Research-Based Formula</p>
       </div>
     </div>
 
@@ -1049,7 +1146,7 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-inner">
-            <img src="https://images.unsplash.com/photo-1532094349884-543559cdd7e0?w=160&q=80" class="tl-img" alt="" />
+            <img src="./Image/steps1.png" class="tl-img" alt="" />
             <div class="tl-body">
               <div class="tl-step">Step 01</div>
               <div class="tl-text"><em>Ear canal</em> को साफ रखने में help करता है</div>
@@ -1059,7 +1156,7 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-inner">
-            <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=160&q=80" class="tl-img" alt="" />
+            <img src="./Image/steps2.png" class="tl-img" alt="" />
             <div class="tl-body">
               <div class="tl-step">Step 02</div>
               <div class="tl-text"><em>Germs और Infection</em> growth को control करने में support करता है</div>
@@ -1069,7 +1166,7 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-inner">
-            <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=160&q=80" class="tl-img" alt="" />
+            <img src="./Image/steps3.png" class="tl-img" alt="" />
             <div class="tl-body">
               <div class="tl-step">Step 03</div>
               <div class="tl-text"><em>Swelling और Discomfort</em> को calm करता है</div>
@@ -1079,7 +1176,7 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-inner">
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=160&q=80" class="tl-img" alt="" />
+            <img src="./Image/steps4.png" class="tl-img" alt="" />
             <div class="tl-body">
               <div class="tl-step">Step 04</div>
               <div class="tl-text"><em>Hearing Clarity</em> support में मदद करता है</div>
@@ -1089,7 +1186,7 @@
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-inner">
-            <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=160&q=80" class="tl-img" alt="" />
+            <img src="./Image/steps5.png" class="tl-img" alt="" />
             <div class="tl-body">
               <div class="tl-step">Step 05</div>
               <div class="tl-text">Overall <em>Ear Health</em> को strong बनाने में सहायक</div>
@@ -1107,7 +1204,7 @@
       <div class="sec-h">अगर ये <span class="r">Symptoms</span> हैं<br />तो तुरंत ध्यान दें!</div>
       <div class="warn-grid">
         <div class="warn-card">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=250&q=80" alt="" />
+          <img src="./Image/Problem1.png" alt="" />
           <div class="warn-card-body">
             <div class="wdot-row">
               <div class="wdot"></div>
@@ -1116,7 +1213,7 @@
           </div>
         </div>
         <div class="warn-card">
-          <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=250&q=80" alt="" />
+          <img src="./Image/Problem2.png" alt="" />
           <div class="warn-card-body">
             <div class="wdot-row">
               <div class="wdot"></div>
@@ -1125,7 +1222,7 @@
           </div>
         </div>
         <div class="warn-card">
-          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=250&q=80" alt="" />
+          <img src="./Image/Problem3.png" alt="" />
           <div class="warn-card-body">
             <div class="wdot-row">
               <div class="wdot"></div>
@@ -1134,7 +1231,7 @@
           </div>
         </div>
         <div class="warn-card">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=250&q=80" alt="" />
+          <img src="./Image/Problem4.png" alt="" />
           <div class="warn-card-body">
             <div class="wdot-row">
               <div class="wdot"></div>
@@ -1153,14 +1250,14 @@
       <div class="sec-label">⚕️ Serious Conditions</div>
       <div class="sec-h"><span class="y">Serious Ear Conditions</span><br />को हल्के में न लें</div>
       <div class="cond-card">
-        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200&q=80" class="cond-img" alt="" />
+        <img src="./Image/Solution1.png" class="cond-img" alt="" />
         <div class="cond-body">
           <div class="cond-name">Otitis Media</div>
           <div class="cond-desc">Middle ear infection — time पर treat न हो तो permanent hearing loss हो सकती है।</div>
         </div>
       </div>
       <div class="cond-card">
-        <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=200&q=80" class="cond-img" alt="" />
+        <img src="./Image/Solution2.png" class="cond-img" alt="" />
         <div class="cond-body">
           <div class="cond-name">Cholesteatoma</div>
           <div class="cond-desc">Ear canal को damage करने वाली growth — तुरंत care जरूरी है।</div>
@@ -1173,52 +1270,74 @@
 
     <div class="divider"></div>
 
-    <!-- TESTIMONIALS -->
-    <div class="testi-sec">
-      <div class="sec-label">⭐ Customers Experience</div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="testi-av" alt="" />
-          <div>
-            <div class="testi-nm">Ramesh K., Delhi</div>
-            <div class="testi-loc">Verified Buyer</div>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="testi-txt">"Ear discharge पहले से कम हुआ। पहले बहुत परेशानी थी, अब काफी relief है।"</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="testi-av" alt="" />
-          <div>
-            <div class="testi-nm">Priya S., Jaipur</div>
-            <div class="testi-loc">Verified Buyer</div>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="testi-txt">"Pain और swelling में relief मिला। Natural formula है तो कोई side effect भी नहीं।"</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" class="testi-av" alt="" />
-          <div>
-            <div class="testi-nm">Sunil M., Mumbai</div>
-            <div class="testi-loc">Verified Buyer</div>
-            <div class="stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="testi-txt">"Hearing clarity improve हुई। अब TV volume कम करके भी clearly सुन पाता हूं।"</div>
-      </div>
-    </div>
-
-    <div class="divider red"></div>
-
     <!-- OFFER -->
     <div class="offer-sec">
       <div class="offer-hdr">
         <h2>🎁 Limited Time Offer</h2>
         <p>आज ही Order करें और ये सब पाएं FREE!</p>
       </div>
+      <div
+        style="text-align: center; display: flex; justify-content: center; align-items: center; padding: 16px; position: relative;">
+        <img src="./Image/Product.avif" alt="Ear Care Plus Product"
+          style="max-width: 200px; height: auto; border-radius: 12px; border: 3px solid var(--yellow); box-shadow: 0 0 20px #FFD60044;">
+
+        <!-- Floating Service Badges -->
+        <div
+          style="position: absolute; top: 5px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 800; animation: bounce 2s infinite;">
+          🚚 FREE DELIVERY</div>
+
+        <div
+          style="position: absolute; top: 50%; right: 35px; transform: translateY(-50%); background: var(--yellow); color: black; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 800; animation: bounce 2s infinite 0.5s;">
+          🏷️ 10% OFF</div>
+
+        <div
+          style="position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 800; animation: bounce 2s infinite 1s;">
+          💵 COD</div>
+
+        <div
+          style="position: absolute; top: 50%; left: 95px; transform: translateY(-50%); background: var(--yellow); color: black; padding: 4px 8px; border-radius: 12px; font-size: 10px; font-weight: 800; animation: bounce 2s infinite 1.5s;">
+          📋 FREE CHART</div>
+      </div>
+
+      <style>
+        @keyframes bounce {
+
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(-50%) scale(1);
+          }
+
+          40% {
+            transform: translateY(-50%) scale(1.1);
+          }
+
+          60% {
+            transform: translateY(-50%) scale(1.05);
+          }
+        }
+
+        @keyframes bounce {
+
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateX(-50%) scale(1);
+          }
+
+          40% {
+            transform: translateX(-50%) scale(1.1);
+          }
+
+          60% {
+            transform: translateX(-50%) scale(1.05);
+          }
+        }
+      </style>
       <div class="offer-body">
         <div class="offer-row">
           <div class="o-chip">
@@ -1247,17 +1366,177 @@
       </div>
     </div>
 
-    <!-- ORDER FORM -->
-    <div class="order-sec" id="order">
-      <div class="form-ttl">📝 अभी Order करें</div>
-      <div class="form-sub">Form भरें — घर बैठे पाएं Ear Care Plus</div>
-      <div class="fgrp"><label class="flbl">आपका नाम *</label><input type="text" class="finput"
-          placeholder="अपना पूरा नाम लिखें" /></div>
-      <div class="fgrp"><label class="flbl">Mobile Number *</label><input type="tel" class="finput"
-          placeholder="10 अंकों का Mobile Number" /></div>
-      <button class="sbtn" onclick="handleOrder()">✅ YES! I Want Ear Care Plus →</button>
-      <div class="secure">🔒 आपकी details <span>100% safe और secure</span> रहेंगी।</div>
+    <html>
+
+    <head>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <style>
+        @keyframes formPulse {
+
+          0%,
+          100% {
+            opacity: 1;
+          }
+
+          50% {
+            opacity: .75;
+          }
+        }
+
+        .form-pulse {
+          animation: formPulse 1.5s ease-in-out infinite;
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+          width: 40px;
+          height: 40px;
+          border: 4px solid rgba(255, 255, 255, .3);
+          border-top-color: #fff;
+          border-radius: 50%;
+          animation: spin .8s linear infinite;
+        }
+
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Loading box bg override */
+        #loading {
+          background: linear-gradient(135deg, #0b3d20, #1a6e3c) !important;
+          border-radius: 16px;
+        }
+      </style>
+
+      <script>
+        function submitForm(event) {
+          event.preventDefault();
+          document.getElementById("loading").style.display = "block";
+
+          fetch('https://ayurlifeindia.shop/demo.php', {
+            method: 'POST',
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status == 200) {
+                fetch('https://script.google.com/macros/s/AKfycbztilYR0Yc8q9w74-a-p1OF-1QzsDAr6IY4yGmZltpgCSslRk2PtNEe_a1n8ZlA_jHWXw/exec', {
+                  method: 'POST',
+                  body: new FormData(event.target)
+                })
+                  .then(response => {
+                    document.getElementById("loading").style.display = "none";
+
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'Success',
+                      text: 'Processing Your Order. Please wait....',
+                      confirmButtonColor: '#3085d6',
+                      confirmButtonText: 'OK',
+                    });
+
+                    return response.text();
+                  })
+                  .then(data => {
+                    window.location.href = 'https://ayurlifeindia.shop/a3-herbal-extra-care-tablet-thankyou/';
+                  });
+                return false;
+              }
+              if (data.status == 400) {
+                document.getElementById("loading").style.display = "none";
+
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Duplicate Order Found! 🚫',
+                  text: 'Oh no! 🚫 Our system has detected that you are attempting to submit a fake or duplicate Order. Please try again after 12 hours. ⏳.',
+                  confirmButtonColor: '#d33',
+                  confirmButtonText: 'Try After 12 Hours ',
+                });
+              }
+            })
+            .catch(error => {
+              console.error('Fetch error:', error);
+              document.getElementById("loading").style.display = "none";
+            });
+          return false;
+        }
+
+        // Animated dots for loading state
+        let dotCount = 1;
+        setInterval(() => {
+          const d = document.getElementById('dotAnim');
+          if (d) { dotCount = (dotCount % 3) + 1; d.textContent = '.'.repeat(dotCount); }
+        }, 500);
+      </script>
+    </head>
+
+    <body>
+      <!-- ORDER FORM -->
+      <div class="order-sec" id="order">
+        <form onsubmit="return submitForm(event)"></form>
+        <div class="form-ttl">📝 अभी Order करें</div>
+        <div class="form-sub">Form भरें — घर बैठे पाएं Ear Care Plus</div>
+        <div class="fgrp"><label class="flbl">आपका नाम *</label><input type="text" class="finput" name="name"
+            placeholder="अपना पूरा नाम लिखें" /></div>
+        <div class="fgrp"><label class="flbl">Mobile Number *</label><input type="tel" class="finput" name="phone"
+            maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10 अंकों का Mobile Number" /></div>
+        <button class="sbtn" id="submitBtn" onclick="submitForm(event)">✅ YES! I Want Ear Care Plus →</button>
+
+        <!-- Loading State -->
+        <div id="loading" style="display:none;" class="rounded-2xl py-5 px-4 text-center"
+          style="background:linear-gradient(135deg,#0b3d20,#27ae60)">
+          <div class="loading-spinner mx-auto mb-3"></div>
+          <p class="fd font-bold text-white text-base">
+            आपका Order Process हो रहा है<span id="dotAnim">...</span>
+          </p>
+          <p class="text-white/70 text-xs mt-1">कृपया प्रतीक्षा करें — यह कुछ seconds में हो जाएगा</p>
+        </div>
+        <div class="secure">🔒 आपकी details <span>100% safe और secure</span> रहेंगी।</div>
+      </div>
+
+    </body>
+
+    </html>
+
+    <!-- TESTIMONIALS -->
+    <div class="testi-sec">
+      <div class="sec-label">⭐ Customers Experience</div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="./Image/Client1.png" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Ramesh K., Delhi</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Ear discharge पहले से कम हुआ। पहले बहुत परेशानी थी, अब काफी relief है।"</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="./Image/Client2.png" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Priya S., Jaipur</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Pain और swelling में relief मिला। Natural formula है तो कोई side effect भी नहीं।"</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="./Image/Client3.png" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Sunil M., Mumbai</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Hearing clarity improve हुई। अब TV volume कम करके भी clearly सुन पाता हूं।"</div>
+      </div>
     </div>
+    <div class="divider red"></div>
 
     <!-- FAQ -->
     <div class="faq-sec">
