@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ear Care Plus – Advanced Herbal Ear Support</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Noto+Sans+Devanagari:wght@400;600;700;900&display=swap"
+    rel="stylesheet">
+     <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --black: #080808;
+      --red: #e01010;
+      --red-dark: #900;
+      --yellow: #FFD600;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0a0a0a;
+      font-family: 'Noto Sans Devanagari', 'Baloo 2', sans-serif;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      font-size: 15px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 450px;
+      background: var(--black);
+      overflow: hidden;
+    }
+
+    .sec-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--yellow);
+      color: #000;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .sec-h {
+      font-size: 25px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .sec-h .y {
+      color: var(--yellow);
+    }
+
+    .sec-h .r {
+      color: var(--red);
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+    }
+
+    .divider.red {
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .spacer {
+      height: 72px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #200000, #080808);
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.5);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 18px 24px;
+      background: linear-gradient(transparent, #080808e0 55%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 #e0101066;
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px #e0101000;
+      }
+    }
+
+    .hero-title {
+      font-size: 27px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 9px;
+    }
+
+    .hero-title .y {
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* PROBLEMS — numbered side strip */
+    .problems-sec {
+      padding: 26px 16px;
+      background: #0d0d0d;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .prob-item {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid #e0101044;
+      background: linear-gradient(115deg, #1a0000, #131313);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .prob-item:hover {
+      transform: translateX(4px);
+      border-color: var(--red);
+    }
+
+    .prob-num {
+      background: var(--red);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      padding: 10px 7px;
+      letter-spacing: 2px;
+      min-width: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .prob-img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-right: 2px solid #1e1e1e;
+    }
+
+    .prob-body {
+      padding: 10px 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .prob-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .prob-sub {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.4;
+    }
+
+    .warn-box {
+      margin-top: 14px;
+      background: linear-gradient(90deg, #6b0000, #400000);
+      border: 2px solid var(--yellow);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--yellow);
+      line-height: 1.55;
+    }
+
+    .warn-box span {
+      color: #fff;
+      font-weight: 400;
+    }
+
+    /* PRODUCT */
+    .product-sec {
+      padding: 26px 16px;
+      background: #080808;
+      border-bottom: 3px solid var(--yellow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-sec::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFD60018, transparent 70%);
+      pointer-events: none;
+    }
+
+    .prod-banner {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .prod-banner img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.6);
+    }
+
+    .prod-banner-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .prod-banner-name {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .prod-banner-tag {
+      font-size: 14px;
+      color: #eee;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .prod-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .prod-img {
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid var(--yellow);
+      box-shadow: 0 0 22px #FFD60044;
+      flex-shrink: 0;
+    }
+
+    .prod-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .ptag {
+      background: #1a1a00;
+      border: 1.5px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* HOW IT WORKS — TIMELINE */
+    .how-sec {
+      padding: 26px 16px;
+      background: #0a0a0a;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 26px;
+      margin-top: 4px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--yellow), var(--red), var(--yellow));
+      border-radius: 3px;
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 14px;
+      background: #141414;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid #ffffff0f;
+      transition: border-color .2s;
+    }
+
+    .tl-item:hover {
+      border-color: var(--yellow);
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--yellow);
+      border: 3px solid #080808;
+      box-shadow: 0 0 8px #FFD600aa;
+      z-index: 1;
+    }
+
+    .tl-inner {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .tl-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-right: 3px solid var(--yellow);
+    }
+
+    .tl-body {
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .tl-step {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .tl-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .tl-text em {
+      color: var(--yellow);
+      font-style: normal;
+    }
+
+    /* WARNING SIGNS — PHOTO CARD GRID */
+    .warn-sec {
+      padding: 26px 16px;
+      background: linear-gradient(170deg, #180000, #080808);
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .warn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .warn-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #e0101055;
+      aspect-ratio: 1/1.1;
+      transition: transform .2s, border-color .2s;
+      cursor: default;
+    }
+
+    .warn-card:hover {
+      transform: scale(1.03);
+      border-color: var(--red);
+    }
+
+    .warn-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.42);
+      transition: filter .3s;
+    }
+
+    .warn-card:hover img {
+      filter: brightness(.55);
+    }
+
+    .warn-card-body {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 11px;
+      background: linear-gradient(transparent 30%, #000000cc);
+    }
+
+    .wdot-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    .wdot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: blink 1.3s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .2;
+      }
+    }
+
+    .warn-card-text {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .warn-card-text em {
+      color: var(--yellow);
+      font-style: normal;
+    }
+
+    .ignore-bar {
+      margin-top: 14px;
+      background: var(--yellow);
+      color: #000;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 900;
+      padding: 13px;
+      border-radius: 8px;
+      letter-spacing: .5px;
+    }
+
+    /* SERIOUS */
+    .serious-sec {
+      padding: 26px 16px;
+      background: #0c0c0c;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .cond-card {
+      display: flex;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid var(--red);
+      background: #140000;
+      margin-bottom: 12px;
+    }
+
+    .cond-img {
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-right: 3px solid var(--yellow);
+    }
+
+    .cond-body {
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .cond-name {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--yellow);
+    }
+
+    .cond-desc {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.5;
+    }
+
+    .ent-box {
+      margin-top: 12px;
+      background: #1a1a00;
+      border: 2px dashed var(--yellow);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: var(--yellow);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    /* TESTIMONIALS */
+    .testi-sec {
+      padding: 26px 16px;
+      background: #080808;
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .testi-card {
+      background: linear-gradient(135deg, #111, #1a1a00);
+      border: 2px solid var(--yellow);
+      border-radius: 14px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      right: 12px;
+      font-size: 90px;
+      color: #FFD60020;
+      font-family: Georgia, serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testi-top {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .testi-av {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .testi-nm {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--yellow);
+    }
+
+    .testi-loc {
+      font-size: 12px;
+      color: #777;
+      margin-top: 1px;
+    }
+
+    .stars {
+      color: var(--yellow);
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .testi-txt {
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* OFFER */
+    .offer-sec {
+      background: linear-gradient(160deg, #1a1200, #080808);
+      border-bottom: 3px solid var(--red);
+      overflow: hidden;
+    }
+
+    .offer-hdr {
+      background: linear-gradient(90deg, var(--red), #b00);
+      padding: 15px 16px;
+      text-align: center;
+    }
+
+    .offer-hdr h2 {
+      font-size: 23px;
+      font-weight: 900;
+      color: var(--yellow);
+    }
+
+    .offer-hdr p {
+      font-size: 14px;
+      color: #ffdd88;
+      margin-top: 3px;
+    }
+
+    .offer-body {
+      padding: 20px 16px;
+    }
+
+    .offer-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .o-chip {
+      background: #111;
+      border: 2px solid var(--yellow);
+      border-radius: 12px;
+      padding: 15px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .o-chip.red-chip {
+      border-color: var(--red);
+    }
+
+    .o-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .o-label {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1.2;
+    }
+
+    .o-chip.red-chip .o-label {
+      color: #ff6060;
+    }
+
+    .o-sub {
+      font-size: 12px;
+      color: #888;
+      margin-top: 3px;
+    }
+
+    /* ORDER FORM */
+    .order-sec {
+      padding: 26px 16px;
+      background: #0a0a0a;
+    }
+
+    .form-ttl {
+      font-size: 25px;
+      font-weight: 900;
+      color: var(--yellow);
+      margin-bottom: 4px;
+    }
+
+    .form-sub {
+      font-size: 15px;
+      color: #888;
+      margin-bottom: 18px;
+    }
+
+    .fgrp {
+      margin-bottom: 14px;
+    }
+
+    .flbl {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+      color: #bbb;
+      margin-bottom: 6px;
+      letter-spacing: .5px;
+    }
+
+    .finput {
+      width: 100%;
+      background: #141414;
+      border: 2px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 14px 15px;
+      color: #fff;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color .2s;
+    }
+
+    .finput:focus {
+      border-color: var(--yellow);
+    }
+
+    .finput::placeholder {
+      color: #444;
+    }
+
+    .sbtn {
+      width: 100%;
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--yellow), #ffb300);
+      color: #000;
+      font-size: 18px;
+      font-weight: 900;
+      border: none;
+      border-radius: 12px;
+      padding: 17px;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: .5px;
+      box-shadow: 0 4px 24px #FFD60055;
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .sbtn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 32px #FFD60077;
+    }
+
+    .sbtn:active {
+      transform: scale(.98);
+    }
+
+    .secure {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .secure span {
+      color: var(--yellow);
+    }
+
+    /* FAQ */
+    .faq-sec {
+      padding: 26px 16px 30px;
+      background: #070707;
+      border-top: 3px solid var(--yellow);
+    }
+
+    .faq-item {
+      border: 1.5px solid #222;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+
+    .faq-item.open {
+      border-color: var(--yellow);
+    }
+
+    .faq-q {
+      background: #111;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      user-select: none;
+      gap: 8px;
+    }
+
+    .faq-item.open .faq-q {
+      color: var(--yellow);
+    }
+
+    .faq-arr {
+      font-size: 20px;
+      color: var(--yellow);
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-arr {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      background: #0e0e0e;
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .2s;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 200px;
+      padding: 13px 15px;
+    }
+
+    /* FLOATING */
+    .float-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 450px;
+      z-index: 999;
+      background: linear-gradient(90deg, #0e0e0e, #180000, #0e0e0e);
+      border-top: 2px solid var(--yellow);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 -4px 28px #00000099;
+    }
+
+    .float-txt {
+      flex: 1;
+      font-size: 12px;
+      color: #aaa;
+      line-height: 1.35;
+    }
+
+    .float-txt strong {
+      color: var(--yellow);
+      font-size: 13px;
+    }
+
+    .float-cta {
+      background: var(--red);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      padding: 12px 16px;
+      border-radius: 9px;
+      white-space: nowrap;
+      border: none;
+      font-family: inherit;
+      letter-spacing: .5px;
+      cursor: pointer;
+      box-shadow: 0 2px 14px #e0101055;
+      transition: transform .15s;
+    }
+
+    .float-cta:hover {
+      transform: scale(1.04);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" id="top">
+
+    <!-- HERO -->
+    <div class="hero mt-26">
+      <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=150&q=80" class="hero-img"
+        alt="Ear Health" />
+      <div class="hero-overlay">
+        <div class="hero-badge">⚠️ URGENT ALERT</div>
+        <div class="hero-title">👂 क्या आप भी इन<br /><span class="y">Ear Problems</span> से<br />परेशान हैं?</div>
+        <div class="hero-sub">कान की तकलीफ को ignore करना खतरनाक हो सकता है — समय रहते सही care जरूरी है।</div>
+      </div>
+    </div>
+
+    <!-- PROBLEMS -->
+    <div class="problems-sec">
+      <div class="sec-label">😟 मुख्य समस्याएं</div>
+
+      <div class="prob-item">
+        <div class="prob-num">01</div>
+        <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">कम सुनाई देना</div>
+          <div class="prob-sub">आवाजें धुंधली या कम सुनाई देती हैं</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">02</div>
+        <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">बहरेपन का डर</div>
+          <div class="prob-sub">Hearing loss का बढ़ता हुआ खतरा</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">03</div>
+        <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">कान में दर्द</div>
+          <div class="prob-sub">लगातार या रुक-रुक कर होने वाला दर्द</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">04</div>
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">बार-बार Ear Infection</div>
+          <div class="prob-sub">Recurring infections का सिलसिला</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">05</div>
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">पानी या मवाद आना</div>
+          <div class="prob-sub">कान से fluid या discharge होना</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">06</div>
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">कान में सूजन</div>
+          <div class="prob-sub">Swelling और discomfort महसूस होना</div>
+        </div>
+      </div>
+      <div class="prob-item">
+        <div class="prob-num">07</div>
+        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=150&q=80" class="prob-img" alt="" />
+        <div class="prob-body">
+          <div class="prob-title">हड्डी कमजोर होना</div>
+          <div class="prob-sub">Ear bone density का घटते जाना</div>
+        </div>
+      </div>
+
+      <div class="warn-box">⚠️ अगर इन problems को time पर control नहीं किया गया, <span>तो आगे चलकर hearing seriously
+          affect हो सकती है।</span></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PRODUCT -->
+    <div class="product-sec">
+      <div class="sec-label">🌿 हमारा Solution</div>
+      <div class="prod-banner">
+        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=450&q=80" alt="Herbal" />
+        <div class="prod-banner-text">
+          <div class="prod-banner-name">Ear Care Plus</div>
+          <div class="prod-banner-tag">Advanced Herbal Ear Support Formula</div>
+        </div>
+      </div>
+      <div class="prod-row">
+        <img src="https://images.unsplash.com/photo-1611068120813-5d9bdca66d52?w=200&q=80" class="prod-img"
+          alt="Product" />
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#ccc;line-height:1.65;">कान की हर समस्या के लिए एक <span
+              style="color:var(--yellow);font-weight:900;">Natural Formula</span> — safe, effective और daily use के लिए
+            developed।</div>
+          <div class="prod-tags">
+            <span class="ptag">✔ Natural</span><span class="ptag">✔ Herbal</span>
+            <span class="ptag">✔ Daily Safe</span><span class="ptag">✔ No Chemicals</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider red"></div>
+
+    <!-- HOW IT WORKS — TIMELINE -->
+    <div class="how-sec">
+      <div class="sec-label">💡 कैसे काम करता है?</div>
+      <div class="sec-h">Ear Care Plus का <span class="y">5-Step Action</span></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-inner">
+            <img src="https://images.unsplash.com/photo-1532094349884-543559cdd7e0?w=160&q=80" class="tl-img" alt="" />
+            <div class="tl-body">
+              <div class="tl-step">Step 01</div>
+              <div class="tl-text"><em>Ear canal</em> को साफ रखने में help करता है</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-inner">
+            <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=160&q=80" class="tl-img" alt="" />
+            <div class="tl-body">
+              <div class="tl-step">Step 02</div>
+              <div class="tl-text"><em>Germs और Infection</em> growth को control करने में support करता है</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-inner">
+            <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=160&q=80" class="tl-img" alt="" />
+            <div class="tl-body">
+              <div class="tl-step">Step 03</div>
+              <div class="tl-text"><em>Swelling और Discomfort</em> को calm करता है</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-inner">
+            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=160&q=80" class="tl-img" alt="" />
+            <div class="tl-body">
+              <div class="tl-step">Step 04</div>
+              <div class="tl-text"><em>Hearing Clarity</em> support में मदद करता है</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-inner">
+            <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=160&q=80" class="tl-img" alt="" />
+            <div class="tl-body">
+              <div class="tl-step">Step 05</div>
+              <div class="tl-text">Overall <em>Ear Health</em> को strong बनाने में सहायक</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- WARNING SIGNS — PHOTO CARD GRID -->
+    <div class="warn-sec">
+      <div class="sec-label">🚨 Warning Signs</div>
+      <div class="sec-h">अगर ये <span class="r">Symptoms</span> हैं<br />तो तुरंत ध्यान दें!</div>
+      <div class="warn-grid">
+        <div class="warn-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=250&q=80" alt="" />
+          <div class="warn-card-body">
+            <div class="wdot-row">
+              <div class="wdot"></div>
+            </div>
+            <div class="warn-card-text">लोग बार-बार बात <em>repeat</em> करते हैं</div>
+          </div>
+        </div>
+        <div class="warn-card">
+          <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=250&q=80" alt="" />
+          <div class="warn-card-body">
+            <div class="wdot-row">
+              <div class="wdot"></div>
+            </div>
+            <div class="warn-card-text">TV का <em>volume ज्यादा</em> रखना पड़ता है</div>
+          </div>
+        </div>
+        <div class="warn-card">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=250&q=80" alt="" />
+          <div class="warn-card-body">
+            <div class="wdot-row">
+              <div class="wdot"></div>
+            </div>
+            <div class="warn-card-text">कान में <em>blockage या pressure</em> feel होता है</div>
+          </div>
+        </div>
+        <div class="warn-card">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=250&q=80" alt="" />
+          <div class="warn-card-body">
+            <div class="wdot-row">
+              <div class="wdot"></div>
+            </div>
+            <div class="warn-card-text">लगातार <em>दर्द या discharge</em> होना</div>
+          </div>
+        </div>
+      </div>
+      <div class="ignore-bar">🛑 अब और ignore मत कीजिए!</div>
+    </div>
+
+    <div class="divider red"></div>
+
+    <!-- SERIOUS -->
+    <div class="serious-sec">
+      <div class="sec-label">⚕️ Serious Conditions</div>
+      <div class="sec-h"><span class="y">Serious Ear Conditions</span><br />को हल्के में न लें</div>
+      <div class="cond-card">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200&q=80" class="cond-img" alt="" />
+        <div class="cond-body">
+          <div class="cond-name">Otitis Media</div>
+          <div class="cond-desc">Middle ear infection — time पर treat न हो तो permanent hearing loss हो सकती है।</div>
+        </div>
+      </div>
+      <div class="cond-card">
+        <img src="https://images.unsplash.com/photo-1559757175-7b21671f4b24?w=200&q=80" class="cond-img" alt="" />
+        <div class="cond-body">
+          <div class="cond-name">Cholesteatoma</div>
+          <div class="cond-desc">Ear canal को damage करने वाली growth — तुरंत care जरूरी है।</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:#999;line-height:1.6;margin-bottom:12px;">Ear Care Plus ear hygiene और protection
+        के लिए develop किया गया है।</p>
+      <div class="ent-box">⚠️ Severe condition में ENT doctor की सलाह जरूर लें।</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testi-sec">
+      <div class="sec-label">⭐ Customers Experience</div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Ramesh K., Delhi</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Ear discharge पहले से कम हुआ। पहले बहुत परेशानी थी, अब काफी relief है।"</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Priya S., Jaipur</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Pain और swelling में relief मिला। Natural formula है तो कोई side effect भी नहीं।"</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" class="testi-av" alt="" />
+          <div>
+            <div class="testi-nm">Sunil M., Mumbai</div>
+            <div class="testi-loc">Verified Buyer</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-txt">"Hearing clarity improve हुई। अब TV volume कम करके भी clearly सुन पाता हूं।"</div>
+      </div>
+    </div>
+
+    <div class="divider red"></div>
+
+    <!-- OFFER -->
+    <div class="offer-sec">
+      <div class="offer-hdr">
+        <h2>🎁 Limited Time Offer</h2>
+        <p>आज ही Order करें और ये सब पाएं FREE!</p>
+      </div>
+      <div class="offer-body">
+        <div class="offer-row">
+          <div class="o-chip">
+            <div class="o-icon">🚚</div>
+            <div class="o-label">FREE Delivery</div>
+            <div class="o-sub">पूरे India में</div>
+          </div>
+          <div class="o-chip red-chip">
+            <div class="o-icon">🏷️</div>
+            <div class="o-label">10% Discount</div>
+            <div class="o-sub">आज के लिए Special</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <div class="o-chip">
+            <div class="o-icon">💵</div>
+            <div class="o-label">COD Available</div>
+            <div class="o-sub">Cash on Delivery</div>
+          </div>
+          <div class="o-chip red-chip">
+            <div class="o-icon">📋</div>
+            <div class="o-label">FREE Diet Chart</div>
+            <div class="o-sub">Ear Health के लिए</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER FORM -->
+    <div class="order-sec" id="order">
+      <div class="form-ttl">📝 अभी Order करें</div>
+      <div class="form-sub">Form भरें — घर बैठे पाएं Ear Care Plus</div>
+      <div class="fgrp"><label class="flbl">आपका नाम *</label><input type="text" class="finput"
+          placeholder="अपना पूरा नाम लिखें" /></div>
+      <div class="fgrp"><label class="flbl">Mobile Number *</label><input type="tel" class="finput"
+          placeholder="10 अंकों का Mobile Number" /></div>
+      <button class="sbtn" onclick="handleOrder()">✅ YES! I Want Ear Care Plus →</button>
+      <div class="secure">🔒 आपकी details <span>100% safe और secure</span> रहेंगी।</div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-sec">
+      <div class="sec-label">❓ FAQs</div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">क्या यह safe है? <span class="faq-arr">▾</span></div>
+        <div class="faq-a">Natural ingredients based formula है। किसी भी प्रकार के harmful chemicals का use नहीं किया
+          गया। Daily use के लिए develop किया गया है।</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">कितने दिन में result मिलेगा? <span class="faq-arr">▾</span></div>
+        <div class="faq-a">Result individual condition पर depend करता है। Generally कुछ हफ्तों के regular use से
+          improvement notice होती है।</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">क्या यह permanent deafness ठीक करेगा? <span class="faq-arr">▾</span></div>
+        <div class="faq-a">Severe case में medical consultation जरूरी है। Ear Care Plus ear hygiene और protection
+          support के लिए designed है।</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">COD available है क्या? <span class="faq-arr">▾</span></div>
+        <div class="faq-a">हाँ! Cash on Delivery (COD) available है। आपको advance payment करने की कोई जरूरत नहीं।</div>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <!-- FLOATING BAR -->
+  <div class="float-bar">
+    <div class="float-txt"><strong>🎁 आज Order करें:</strong><br />Free Delivery + Diet Chart + 10% Off + COD</div>
+    <button class="float-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">ORDER
+      NOW</button>
+  </div>
+
+  <script>
+    function toggleFaq(el) { el.classList.toggle('open'); }
+    function handleOrder() {
+      const inp = document.querySelectorAll('.finput');
+      const n = inp[0].value.trim(), p = inp[1].value.trim();
+      if (!n || !p) { alert('कृपया अपना नाम और Mobile Number भरें।'); return; }
+      if (p.length < 10) { alert('कृपया सही Mobile Number डालें।'); return; }
+      alert(`✅ धन्यवाद ${n}!\n\nआपका Order receive हो गया है।\nहमारी team जल्द ही contact करेगी।\n\n🎁 आपको मिलेगा:\n✔ Free Delivery\n✔ Free Diet Chart\n✔ 10% Discount\n✔ Cash on Delivery`);
+    }
+  </script>
+</body>
+
+</html>
