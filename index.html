@@ -1262,7 +1262,8 @@
           <div class="cond-desc">Ear canal को damage करने वाली growth — तुरंत care जरूरी है।</div>
         </div>
       </div>
-      <p style="font-size:14px;color:#f9f6f6;line-height:1.6;margin-bottom:12px;">Ear Care Plus ear hygiene और protection
+      <p style="font-size:14px;color:#f9f6f6;line-height:1.6;margin-bottom:12px;">Ear Care Plus ear hygiene और
+        protection
         के लिए develop किया गया है।</p>
       <div class="ent-box">⚠️ Severe condition में ENT doctor की सलाह जरूर लें।</div>
     </div>
@@ -1390,8 +1391,8 @@
         .loading-spinner {
           width: 40px;
           height: 40px;
-          border: 4px solid rgba(255, 255, 255, .3);
-          border-top-color: #fff;
+          border: 4px solid rgba(0, 0, 0, .3);
+          border-top-color: #000;
           border-radius: 50%;
           animation: spin .8s linear infinite;
         }
@@ -1402,10 +1403,11 @@
           }
         }
 
-        /* Loading box bg override */
+        /* Loading box styles */
         #loading {
-          background: linear-gradient(135deg, #0b3d20, #1a6e3c) !important;
+          background: linear-gradient(135deg, var(--yellow), #ffb300) !important;
           border-radius: 16px;
+          border: 3px solid #000;
         }
       </style>
 
@@ -1413,49 +1415,52 @@
         function submitForm(event) {
           event.preventDefault();
           document.getElementById("loading").style.display = "block";
+          
+          const form = event.target;
+          const formData = new FormData(form);
+          let redirected = false;
 
-          fetch('https://ayurlifeindia.shop/demo.php', {
+          const timeout = setTimeout(() => {
+            if (!redirected) {
+              redirected = true;
+              window.location.href = './ThankYou.html';
+            }
+          }, 2000);
+
+          fetch('https://script.google.com/macros/s/AKfycbxnMuCrcwfsopbyXWRdPKj_4qYlJEaAl1dUNJDOock5uw9XVCUdt8nFDOcmDjmiWIS7/exec', {
             method: 'POST',
-          })
-            .then(response => response.json())
+            body: formData
+          }).then(response => response.text())
             .then(data => {
-              if (data.status == 200) {
-                fetch('https://script.google.com/macros/s/AKfycbztilYR0Yc8q9w74-a-p1OF-1QzsDAr6IY4yGmZltpgCSslRk2PtNEe_a1n8ZlA_jHWXw/exec', {
-                  method: 'POST',
-                  body: new FormData(event.target)
-                })
-                  .then(response => {
-                    document.getElementById("loading").style.display = "none";
-
-                    Swal.fire({
-                      icon: 'success',
-                      title: 'Success',
-                      text: 'Processing Your Order. Please wait....',
-                      confirmButtonColor: '#3085d6',
-                      confirmButtonText: 'OK',
-                    });
-
-                    return response.text();
-                  })
-                  .then(data => {
-                    window.location.href = 'https://ayurlifeindia.shop/a3-herbal-extra-care-tablet-thankyou/';
-                  });
-                return false;
+              if (!redirected) {
+                clearTimeout(timeout);
+                redirected = true;
+                window.location.href = './ThankYou.html';
               }
-              if (data.status == 400) {
-                document.getElementById("loading").style.display = "none";
 
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Duplicate Order Found! 🚫',
-                  text: 'Oh no! 🚫 Our system has detected that you are attempting to submit a fake or duplicate Order. Please try again after 12 hours. ⏳.',
-                  confirmButtonColor: '#d33',
-                  confirmButtonText: 'Try After 12 Hours ',
-                });
-              }
+
+              document.getElementById("loading").style.display = "none";
+
+              Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Processing Your Order. Please wait....',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+              });
+
+              return response.text();
+            })
+            .then(data => {
+              window.location.href = './ThankYou.html';
             })
             .catch(error => {
               console.error('Fetch error:', error);
+              if (!redirected) {
+                clearTimeout(timeout);
+                redirected = true;
+                window.location.href = './ThankYou.html';
+              }
               document.getElementById("loading").style.display = "none";
             });
           return false;
@@ -1473,23 +1478,23 @@
     <body>
       <!-- ORDER FORM -->
       <div class="order-sec" id="order">
-        <form onsubmit="return submitForm(event)"></form>
-        <div class="form-ttl">📝 अभी Order करें</div>
-        <div class="form-sub">Form भरें — घर बैठे पाएं Ear Care Plus</div>
-        <div class="fgrp"><label class="flbl">आपका नाम *</label><input type="text" class="finput" name="name"
-            placeholder="अपना पूरा नाम लिखें" /></div>
-        <div class="fgrp"><label class="flbl">Mobile Number *</label><input type="tel" class="finput" name="phone"
-            maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10 अंकों का Mobile Number" /></div>
-        <button class="sbtn" id="submitBtn" onclick="submitForm(event)">✅ YES! I Want Ear Care Plus →</button>
+        <form onsubmit="return submitForm(event)">
+          <div class="form-ttl">📝 अभी Order करें</div>
+          <div class="form-sub">Form भरें — घर बैठे पाएं Ear Care Plus</div>
+          <div class="fgrp"><label class="flbl">आपका नाम *</label><input type="text" class="finput" name="name"
+              placeholder="अपना पूरा नाम लिखें" required /></div>
+          <div class="fgrp"><label class="flbl">Mobile Number *</label><input type="tel" class="finput" name="phone"
+              maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10 अंकों का Mobile Number" required /></div>
+          <button type="submit" class="sbtn" id="submitBtn">✅ YES! I Want Ear Care Plus →</button>
+        </form>
 
         <!-- Loading State -->
-        <div id="loading" style="display:none;" class="rounded-2xl py-5 px-4 text-center"
-          style="background:linear-gradient(135deg,#0b3d20,#27ae60)">
-          <div class="loading-spinner mx-auto mb-3"></div>
-          <p class="fd font-bold text-white text-base">
+        <div id="loading" style="display:none; background: linear-gradient(135deg, var(--yellow), #ffb300); border-radius: 16px; padding: 20px 16px; text-align: center; margin-top: 16px; border: 3px solid #000;">
+          <div class="loading-spinner" style="margin: 0 auto 12px; width: 40px; height: 40px; border: 4px solid rgba(0, 0, 0, .3); border-top-color: #000; border-radius: 50%; animation: spin .8s linear infinite;"></div>
+          <p style="font-family: inherit; font-weight: 900; color: #000; font-size: 16px; margin: 0 0 8px 0; line-height: 1.4;">
             आपका Order Process हो रहा है<span id="dotAnim">...</span>
           </p>
-          <p class="text-white/70 text-xs mt-1">कृपया प्रतीक्षा करें — यह कुछ seconds में हो जाएगा</p>
+          <p style="color: #333; font-size: 14px; margin: 0; line-height: 1.4; font-weight: 600;">कृपया प्रतीक्षा करें — यह कुछ seconds में हो जाएगा</p>
         </div>
         <div class="secure">🔒 आपकी details <span>100% safe और secure</span> रहेंगी।</div>
       </div>
